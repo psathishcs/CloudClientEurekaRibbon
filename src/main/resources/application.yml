@@ -1,0 +1,29 @@
+
+server:
+  port: 9099
+
+        
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://docker.server.com:8761/eureka/
+        healthcheck:
+            enabled: true
+        lease:
+            duration: 5
+
+spring:
+    application:
+        name: HumanResourceRSClient
+        
+docker-hr-rs:
+  ribbon:
+    DeploymentContextBasedVipAddresses: HUMANRESOURCERS
+    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+    ReadTimeout: 5000
+    MaxAutoRetries: 2
+        
+logging:
+  level:
+    org.client.discovery: FULL
+           
