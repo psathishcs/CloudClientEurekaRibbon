@@ -14,10 +14,14 @@ eureka:
 
 spring:
     application:
-        name: HumanResourceRSClient
+        name: CloudClientEurekaRibbon
+    zipkin:
+        baseUrl: http://docker.server.com:9411    
         
 docker-hr-rs:
   ribbon:
+    eureka:
+      enabled: true
     DeploymentContextBasedVipAddresses: HUMANRESOURCERS
     NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
     ReadTimeout: 5000
